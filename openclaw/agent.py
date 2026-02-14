@@ -43,13 +43,20 @@ def _build_client(config: Config) -> OpenAI:
     provider = config.llm.provider.lower()
 
     base_urls = {
-        "deepseek": "https://api.deepseek.com",
-        "openrouter": "https://openrouter.ai/api/v1",
+        # 国际
         "openai": "https://api.openai.com/v1",
-        "moonshot": "https://api.moonshot.cn/v1",
-        "dashscope": "https://dashscope.aliyuncs.com/compatible-mode/v1",
-        "minimax": "https://api.minimax.chat/v1",
-        "glm": "https://open.bigmodel.cn/api/paas/v4",
+        "openrouter": "https://openrouter.ai/api/v1",
+        # 国产
+        "deepseek": "https://api.deepseek.com",
+        "glm": "https://open.bigmodel.cn/api/paas/v4",             # 智谱GLM
+        "minimax": "https://api.minimax.chat/v1",                   # MiniMax
+        "moonshot": "https://api.moonshot.cn/v1",                   # Moonshot/Kimi
+        "dashscope": "https://dashscope.aliyuncs.com/compatible-mode/v1",  # 阿里通义千问
+        "doubao": "https://ark.cn-beijing.volces.com/api/v3",       # 字节豆包(火山引擎)
+        "spark": "https://spark-api-open.xf-yun.com/v1",            # 讯飞星火
+        "baichuan": "https://api.baichuan-ai.com/v1",               # 百川
+        "yi": "https://api.lingyiwanwu.com/v1",                     # 零一万物
+        "stepfun": "https://api.stepfun.com/v1",                    # 阶跃星辰
     }
 
     api_base = config.llm.api_base or base_urls.get(provider, base_urls["openai"])

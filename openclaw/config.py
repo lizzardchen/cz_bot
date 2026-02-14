@@ -8,7 +8,7 @@ from pydantic import BaseModel, Field
 
 class LLMConfig(BaseModel):
     """LLM provider configuration."""
-    provider: str = "deepseek"  # deepseek, openai, openrouter, minimax, glm, moonshot, dashscope
+    provider: str = "deepseek"  # deepseek, openai, openrouter, glm, minimax, moonshot, dashscope, doubao, spark, baichuan, yi, stepfun
     api_key: str = ""
     api_base: str | None = None
     model: str = "deepseek-chat"

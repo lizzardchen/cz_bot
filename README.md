@@ -74,15 +74,22 @@ claw telegram
 
 ### 支持的 LLM Provider
 
-| Provider | provider 值 | model 值 | 说明 |
-|----------|------------|---------|------|
-| DeepSeek | `deepseek` | `deepseek-chat` | 便宜好用，推荐 |
-| OpenAI | `openai` | `gpt-4o` | 需翻墙 |
-| OpenRouter | `openrouter` | `anthropic/claude-opus-4-5` | 多模型网关 |
-| Moonshot/Kimi | `moonshot` | `moonshot-v1-8k` | 国内快 |
-| 通义千问 | `dashscope` | `qwen-max` | 阿里云，国内快 |
-| MiniMax | `minimax` | `MiniMax-Text-01` | 国内，长上下文 |
-| 智谱GLM | `glm` | `glm-4-plus` | 国内，清华系 |
+| Provider | provider 值 | model 值示例 | 注册地址 |
+|----------|------------|-------------|---------|
+| **DeepSeek** | `deepseek` | `deepseek-chat` | https://platform.deepseek.com |
+| **智谱GLM** | `glm` | `glm-4-plus` | https://open.bigmodel.cn |
+| **MiniMax** | `minimax` | `MiniMax-Text-01` | https://platform.minimaxi.com |
+| **Moonshot/Kimi** | `moonshot` | `moonshot-v1-8k` | https://platform.moonshot.cn |
+| **通义千问** | `dashscope` | `qwen-max` | https://dashscope.console.aliyun.com |
+| **字节豆包** | `doubao` | `doubao-pro-256k` | https://console.volcengine.com/ark |
+| **讯飞星火** | `spark` | `generalv3.5` | https://console.xfyun.cn |
+| **百川** | `baichuan` | `Baichuan4` | https://platform.baichuan-ai.com |
+| **零一万物** | `yi` | `yi-large` | https://platform.lingyiwanwu.com |
+| **阶跃星辰** | `stepfun` | `step-2-16k` | https://platform.stepfun.com |
+| OpenAI | `openai` | `gpt-4o` | https://platform.openai.com |
+| OpenRouter | `openrouter` | `anthropic/claude-opus-4-5` | https://openrouter.ai |
+
+> **注意**: 字节豆包需要在火山引擎控制台创建"推理接入点"后，用接入点 ID 作为 model 值。
 
 ### 环境变量
 
