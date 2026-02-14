@@ -18,7 +18,7 @@
 ### 安装
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/openclaw_bot.git
+git clone https://github.com/lizzardchen/cz_bot.git openclaw_bot
 cd openclaw_bot
 pip install -e .
 ```
@@ -124,7 +124,7 @@ bash ~/openclaw_bot/termux_setup.sh
 # 1. 电脑上 push 到 GitHub/Gitee
 # 2. 手机 Termux 中:
 pkg install git -y
-git clone https://github.com/你的用户名/openclaw_bot.git ~/openclaw_bot
+git clone https://github.com/lizzardchen/cz_bot.git ~/openclaw_bot
 bash ~/openclaw_bot/termux_setup.sh
 ```
 
@@ -134,7 +134,7 @@ bash ~/openclaw_bot/termux_setup.sh
 
 ```bash
 pkg install git -y
-git clone https://github.com/你的用户名/openclaw_bot.git ~/openclaw_bot
+git clone https://github.com/lizzardchen/cz_bot.git ~/openclaw_bot
 bash ~/openclaw_bot/termux_setup.sh
 ```
 

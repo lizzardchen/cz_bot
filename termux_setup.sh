@@ -8,7 +8,7 @@
 #     cd ~/openclaw_bot && bash termux_setup.sh
 #
 #   方式2: 从零开始 (复制粘贴这一行到 Termux)
-#     pkg install -y git && git clone https://github.com/YOUR_USERNAME/openclaw_bot.git ~/openclaw_bot && bash ~/openclaw_bot/termux_setup.sh
+#     pkg install -y git && git clone https://github.com/lizzardchen/cz_bot.git ~/openclaw_bot && bash ~/openclaw_bot/termux_setup.sh
 # ============================================================
 
 set -e
