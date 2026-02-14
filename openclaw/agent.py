@@ -48,6 +48,8 @@ def _build_client(config: Config) -> OpenAI:
         "openai": "https://api.openai.com/v1",
         "moonshot": "https://api.moonshot.cn/v1",
         "dashscope": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+        "minimax": "https://api.minimax.chat/v1",
+        "glm": "https://open.bigmodel.cn/api/paas/v4",
     }
 
     api_base = config.llm.api_base or base_urls.get(provider, base_urls["openai"])

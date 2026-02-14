@@ -74,13 +74,15 @@ claw telegram
 
 ### 支持的 LLM Provider
 
-| Provider | model 值 | 说明 |
-|----------|---------|------|
-| DeepSeek | `deepseek-chat` | 便宜好用，推荐 |
-| OpenAI | `gpt-4o` | |
-| OpenRouter | `anthropic/claude-opus-4-5` | 多模型网关 |
-| Moonshot | `moonshot-v1-8k` | 国内快 |
-| 通义千问 | `qwen-max` | 国内快 |
+| Provider | provider 值 | model 值 | 说明 |
+|----------|------------|---------|------|
+| DeepSeek | `deepseek` | `deepseek-chat` | 便宜好用，推荐 |
+| OpenAI | `openai` | `gpt-4o` | 需翻墙 |
+| OpenRouter | `openrouter` | `anthropic/claude-opus-4-5` | 多模型网关 |
+| Moonshot/Kimi | `moonshot` | `moonshot-v1-8k` | 国内快 |
+| 通义千问 | `dashscope` | `qwen-max` | 阿里云，国内快 |
+| MiniMax | `minimax` | `MiniMax-Text-01` | 国内，长上下文 |
+| 智谱GLM | `glm` | `glm-4-plus` | 国内，清华系 |
 
 ### 环境变量
 
