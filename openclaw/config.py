@@ -23,9 +23,23 @@ class TelegramConfig(BaseModel):
     allowed_users: list[str] = Field(default_factory=list)
 
 
+def _detect_bot_dir() -> str:
+    """Find the openclaw_bot install directory."""
+    # Check common locations
+    from pathlib import Path
+    candidates = [
+        Path.home() / "openclaw_bot",
+        Path(__file__).resolve().parent.parent,  # ../openclaw/ -> ../
+    ]
+    for c in candidates:
+        if (c / "pyproject.toml").exists():
+            return str(c)
+    return "."
+
+
 class ProjectConfig(BaseModel):
     """Project/workspace configuration."""
-    root: str = "."  # project root to operate on
+    root: str = "."  # project root to operate on; defaults to bot's own repo
     auto_commit: bool = True
     branch: str = "main"
 
@@ -101,10 +115,11 @@ def init_config_interactive() -> Config:
         config.llm.model = model
 
     # Project setup
+    default_root = _detect_bot_dir()
     print("\n📁 项目配置")
-    root = input(f"项目根目录 [{config.project.root}]: ").strip()
-    if root:
-        config.project.root = root
+    print(f"  默认操作自己的代码仓库，也可以指定其他项目目录")
+    root = input(f"项目根目录 [{default_root}]: ").strip()
+    config.project.root = root if root else default_root
 
     # Telegram setup
     print("\n📱 Telegram Bot 配置 (可选, 回车跳过)")

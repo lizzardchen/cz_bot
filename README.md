@@ -94,26 +94,66 @@ export OPENCLAW_TG_TOKEN=your-telegram-token
 
 ## 在手机上运行 (Android)
 
-1. 安装 [Termux](https://f-droid.org/packages/com.termux/)（从 F-Droid）
-2. 运行安装脚本：
+### 前置条件
+
+- Android 7.0+ 手机
+- 安装 [Termux](https://f-droid.org/packages/com.termux/)（**必须从 F-Droid 安装**，Google Play 版已停更）
+- 一个 LLM API Key（推荐 DeepSeek，注册即送额度）
+
+### 方法一：电脑开发，传到手机
+
+在电脑上开发好代码后，把整个项目传到手机：
 
 ```bash
+# USB 传输 (推荐)
+# 1. 手机连电脑，把 openclaw_bot 文件夹复制到手机存储
+# 2. 在 Termux 中:
+cp -r /sdcard/openclaw_bot ~/openclaw_bot
+bash ~/openclaw_bot/termux_setup.sh
+
+# 局域网传输 (手机和电脑在同一 WiFi)
+# 电脑上:
+cd openclaw_bot
+python -m http.server 8080
+# 手机 Termux 中:
+pkg install wget -y
+wget -r -np http://电脑IP:8080/ -P ~/openclaw_bot
+bash ~/openclaw_bot/termux_setup.sh
+
+# Git 传输 (推荐，方便后续同步)
+# 1. 电脑上 push 到 GitHub/Gitee
+# 2. 手机 Termux 中:
 pkg install git -y
-git clone https://github.com/YOUR_USERNAME/openclaw_bot.git ~/openclaw_bot
+git clone https://github.com/你的用户名/openclaw_bot.git ~/openclaw_bot
 bash ~/openclaw_bot/termux_setup.sh
 ```
 
-3. 开始使用：
+### 方法二：手机上直接安装
+
+如果代码已经在 GitHub/Gitee 上：
 
 ```bash
-claw chat
+pkg install git -y
+git clone https://github.com/你的用户名/openclaw_bot.git ~/openclaw_bot
+bash ~/openclaw_bot/termux_setup.sh
+```
+
+### 安装后使用
+
+```bash
+claw chat                          # 交互式对话
+claw run '给项目加个日志功能'        # 单次任务
+claw telegram                      # Telegram Bot 模式
+bash ~/claw-chat.sh                # 快捷启动
 ```
 
 ### Termux 小技巧
 
-- **后台运行**: `nohup claw telegram > ~/bot.log 2>&1 &`
-- **防杀进程**: 手机设置 → Termux → 电池优化 → 不优化
-- **开机自启**: 安装 Termux:Boot，创建 `~/.termux/boot/start_bot.sh`
+- **后台运行 Telegram Bot**: `nohup claw telegram > ~/bot.log 2>&1 &`
+- **防杀进程**: 手机设置 → 应用管理 → Termux → 电池优化 → 不优化
+- **开机自启**: 安装 Termux:Boot，脚本自动创建在 `~/.shortcuts/`
+- **桌面快捷方式**: 安装 Termux:Widget，添加小组件即可一键启动
+- **同步代码回电脑**: `cd ~/openclaw_bot && git push`
 
 ## 工作原理
 
